@@ -134,7 +134,7 @@ public class EksamenSBinTre<T> {
             if (temp > 0) {
                 p = p.høyre;
             }
-             if (temp < 0) {
+            else if (temp < 0) {
                 p = p.venstre;
             }
             else {
