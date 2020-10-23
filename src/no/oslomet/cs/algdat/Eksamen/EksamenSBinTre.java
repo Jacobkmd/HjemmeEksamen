@@ -113,8 +113,9 @@ public class EksamenSBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 2
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        
     }
 
     public void nullstill() {
