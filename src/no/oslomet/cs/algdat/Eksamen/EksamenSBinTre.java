@@ -95,12 +95,13 @@ public class EksamenSBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<>(verdi,q);                   // oppretter en ny node
+        p = new Node<>(verdi,q); // oppretter en ny node
 
         if (q == null) rot = p;                  // p blir rotnode
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
         else q.høyre = p;                        // høyre barn til q
 
+        endringer++;
         antall++;                                // én verdi mer i treet
         return true;                             // vellykket innlegging
     }
@@ -161,20 +162,45 @@ public class EksamenSBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 // Oppgave 3
-      private static <T> Node<T> førstePostorden(Node<T> p) {
-        
+    private static <T> Node<T> førstePostorden(Node<T> p) {
+        while ((p.venstre != null) || (p.høyre != null)) {
+            while (p.venstre != null) {
+                p = p.venstre;
+            }
+            if (p.høyre != null) {
+                p = p.høyre;
+            }
+        }
+        return p;
     }
 
     // Oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
+        if (p.forelder == null){
+            return null;
+        }
+        else {
+            if (p.forelder.høyre == p) {
+                p = p.forelder;
+            } else {
+                if (p.forelder.høyre == null) {
+                    p = p.forelder;
+                } else {
+                    p = førstePostorden(p.forelder.høyre);
+                }
 
-
+            }
         }
 
+        return p;
+    }
 
+//Oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
+
     }
+ //Oppgave 4
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
