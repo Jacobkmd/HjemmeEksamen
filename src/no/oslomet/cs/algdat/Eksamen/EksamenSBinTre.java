@@ -216,7 +216,13 @@ public class EksamenSBinTre<T> {
     }
 // Oppgave 4
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        
+        if (p == null) {
+            return;
+        }
+
+        postordenRecursive(p.venstre, oppgave);
+        postordenRecursive(p.høyre, oppgave);
+        oppgave.utførOppgave(p.verdi);
 
     }
 
