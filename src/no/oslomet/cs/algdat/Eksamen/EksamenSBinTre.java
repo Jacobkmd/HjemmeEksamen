@@ -198,17 +198,26 @@ public class EksamenSBinTre<T> {
 //Oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
 
-        
+        if (tom()){
+            return;
+        }
 
+        Node<T> p = førstePostorden(rot);
+
+        while (p != null){
+            oppgave.utførOppgave(p.verdi);
+            p = nestePostorden(p);
+        }
     }
- //Oppgave 4
+
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
     }
-
+// Oppgave 4
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        
+
     }
 
     public ArrayList<T> serialize() {
