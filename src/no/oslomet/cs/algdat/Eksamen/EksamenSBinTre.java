@@ -197,7 +197,8 @@ public class EksamenSBinTre<T> {
 
 //Oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        
 
     }
  //Oppgave 4
