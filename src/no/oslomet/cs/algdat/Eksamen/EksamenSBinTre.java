@@ -226,7 +226,7 @@ public class EksamenSBinTre<T> {
         oppgave.utførOppgave(p.verdi);
 
     }
-
+// Oppgave 5
     public ArrayList<T> serialize () {
         ArrayDeque<Node<T>> queue = new ArrayDeque<>();
         ArrayList<T> list = new ArrayList<>();
@@ -246,9 +246,16 @@ public class EksamenSBinTre<T> {
         }
         return list;
     }
-
+// Oppgave 5
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
 
+        EksamenSBinTre<K> tre = new EksamenSBinTre<>(c);
+
+        for (int i = 0; i < data.size(); i++) {
+            tre.leggInn(data.get(i));
+        }
+
+        return tre;
     }
 
 
