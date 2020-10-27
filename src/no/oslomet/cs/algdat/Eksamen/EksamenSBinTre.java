@@ -225,13 +225,14 @@ public class EksamenSBinTre<T> {
         oppgave.utførOppgave(p.verdi);
 
     }
+   //Oppgave 5
+    public ArrayList<T> serialize () {
 
-    public ArrayList<T> serialize() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 5
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
     }
 
 
