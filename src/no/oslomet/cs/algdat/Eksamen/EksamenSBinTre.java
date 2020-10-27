@@ -1,5 +1,6 @@
 package no.oslomet.cs.algdat.Eksamen;
 
+import com.sun.source.tree.BinaryTree;
 
 import java.util.*;
 
@@ -225,12 +226,27 @@ public class EksamenSBinTre<T> {
         oppgave.utførOppgave(p.verdi);
 
     }
-   //Oppgave 5
-    public ArrayList<T> serialize () {
 
+    public ArrayList<T> serialize () {
+        ArrayDeque<Node<T>> queue = new ArrayDeque<>();
+        ArrayList<T> list = new ArrayList<>();
+
+        queue.addLast(rot);
+
+        while(!queue.isEmpty()) {
+            Node<T> temp = queue.removeFirst();
+
+            if (temp.venstre != null) {
+                queue.addLast(temp.venstre);
+            }
+            if (temp.høyre != null) {
+                queue.addLast(temp.høyre);
+            }
+            list.add(temp.verdi);
+        }
+        return list;
     }
 
-    //Oppgave 5
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
 
     }
