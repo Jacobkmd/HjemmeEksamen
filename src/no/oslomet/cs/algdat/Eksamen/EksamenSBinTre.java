@@ -216,12 +216,11 @@ public class EksamenSBinTre<T> {
         return true;
     }
 
-
-
-
+//Oppgave 6
     public int fjernAlle(T verdi) {
 
         int antallFjernet = 0;
+
         while (fjern(verdi)){
             antallFjernet++;
         }
@@ -270,10 +269,31 @@ public class EksamenSBinTre<T> {
         return verdiForekomster;
     }
 
-
-
+//Oppgave 6
     public void nullstill() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (rot == null){
+            return;
+        }
+
+        ArrayDeque<Node<T>> queue = new ArrayDeque<>();
+
+        queue.addLast(rot);
+
+        while(!queue.isEmpty()) {
+            Node<T> temp = queue.removeFirst();
+
+            if (temp.venstre != null) {
+                queue.addLast(temp.venstre);
+            }
+            if (temp.høyre != null) {
+                queue.addLast(temp.høyre);
+            }
+            temp.verdi = null;
+        }
+
+        antall = 0;
+        rot = null;
+
     }
 // Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
