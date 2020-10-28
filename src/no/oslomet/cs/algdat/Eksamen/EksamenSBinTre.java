@@ -107,8 +107,9 @@ public class EksamenSBinTre<T> {
         return true;                             // vellykket innlegging
     }
 
+//Oppgave 6
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
     }
 
     public int fjernAlle(T verdi) {
